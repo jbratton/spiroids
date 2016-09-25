@@ -1,5 +1,12 @@
 require "spiroids/version"
+require "spiroids/game"
 
 module Spiroids
-  # Your code goes here...
+  def self.init
+    begin
+      Spiroids::Game.new.begin!
+    rescue => e
+      puts "oh geez something bad happened: #{e}\n#{e.backtrace.join("\n")}"
+    end
+  end
 end
