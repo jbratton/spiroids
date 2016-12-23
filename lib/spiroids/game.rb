@@ -1,7 +1,7 @@
 module Spiroids
   class Game < Gosu::Window
-    WIDTH = 1024
-    HEIGHT = 768
+    WIDTH = Gosu.screen_width
+    HEIGHT = Gosu.screen_height
     CAPTION = 'Spiroids'
     INITIAL_SPIROID_COUNT = 40
 
