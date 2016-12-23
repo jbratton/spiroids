@@ -4,14 +4,14 @@ module Spiroids
 
     Z_ORDER = 1
 
-    def initialize(window:, x:, y:, x_velocity: 0, y_velocity: 0, angle: 0)
+    def initialize(window:, image:, x:, y:, x_velocity: 0, y_velocity: 0, angle: 0)
       @window = window
+      @image = image
       @x = x
       @y = y
       @x_velocity = x_velocity
       @y_velocity = y_velocity
       @angle = angle
-      @image = Gosu::Image.new("assets/images/spiroid.png")
     end
 
     def update

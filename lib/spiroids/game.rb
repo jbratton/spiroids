@@ -13,6 +13,8 @@ module Spiroids
     end
 
     def begin!
+      spiroid_image = Gosu::Image.new('assets/images/spiroid.png')
+
       INITIAL_SPIROID_COUNT.times do
         @spiroids << Spiroid.new(window: self,
                                   image: spiroid_image,
