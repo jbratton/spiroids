@@ -13,6 +13,9 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/jbratton/spiroids"
   spec.license       = "MIT"
 
+  # I want 2.4 so I have Comparable#clamp. Yes, I am that petty.
+  spec.required_ruby_version = "> 2.4.0p-1"
+
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
   # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
