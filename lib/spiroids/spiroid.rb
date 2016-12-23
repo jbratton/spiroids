@@ -1,10 +1,10 @@
 module Spiroids
   class Spiroid
-    attr_reader :x, :y, :x_velocity, :y_velocity, :angle, :image
+    attr_reader :x, :y, :x_velocity, :y_velocity, :angle, :angular_velocity
 
     Z_ORDER = 1
 
-    def initialize(window:, image:, x:, y:, x_velocity: 0, y_velocity: 0, angle: 0)
+    def initialize(window:, image:, x:, y:, x_velocity: 2, y_velocity: 2, angle: 0, angular_velocity: 2)
       @window = window
       @image = image
       @x = x
@@ -12,17 +12,24 @@ module Spiroids
       @x_velocity = x_velocity
       @y_velocity = y_velocity
       @angle = angle
+      @angular_velocity = angular_velocity
     end
 
     def update
-      @angle -= 2
+      @angle += angular_velocity
       @angle %= 360
 
       @x += x_velocity
-      @x_velocity = -x_velocity if at_x_edge?
+      if (at_x_edge?)
+        @x_velocity = -x_velocity
+        @angular_velocity = -angular_velocity
+      end
 
       @y += y_velocity
-      @y_velocity = -y_velocity if at_y_edge?
+      if (at_y_edge?)
+        @y_velocity = -y_velocity
+        @angular_velocity = -angular_velocity
+      end
     end
 
     def draw
@@ -30,7 +37,7 @@ module Spiroids
     end
 
     private
-    attr_reader :window
+    attr_reader :window, :image
     def at_x_edge?
       (x + image.width/2) > window.width || (x - image.width/2) < 0
     end
