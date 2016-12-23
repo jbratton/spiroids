@@ -15,8 +15,9 @@ module Spiroids
     def begin!
       INITIAL_SPIROID_COUNT.times do
         @spiroids << Spiroid.new(window: self,
-                                      x: WIDTH/(Random.rand(10) + 1),
-                                      y: HEIGHT/(Random.rand(10) + 1),
+                                  image: spiroid_image,
+                                      x: (WIDTH/(Random.rand(10) + 1)).clamp(spiroid_image.width/2, WIDTH - spiroid_image.width/2),
+                                      y: (HEIGHT/(Random.rand(10) + 1)).clamp(spiroid_image.height/2, HEIGHT - spiroid_image.height/2),
                              x_velocity: Random.rand(5),
                              y_velocity: Random.rand(5))
       end
