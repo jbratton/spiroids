@@ -1,5 +1,7 @@
-require "spiroids/version"
-require "spiroids/game"
+require 'gosu'
+require 'spiroids/version'
+require 'spiroids/spiroid'
+require 'spiroids/game'
 
 module Spiroids
   def self.init
